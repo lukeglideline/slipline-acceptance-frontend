@@ -1,0 +1,13 @@
+name: Slipline Acceptance CI
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Hold for observable state
+        run: sleep 20
+      - name: Verify acceptance state
+        run: grep -qx 'pass' acceptance-ci-state.txt

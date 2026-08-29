@@ -1,0 +1,10 @@
+name: Slipline Acceptance Deploy
+on:
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact acceptance payload
+        run: test -f acceptance-ci-state.txt
